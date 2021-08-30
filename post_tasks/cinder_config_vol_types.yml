@@ -25,5 +25,5 @@
       loop: "{{ backend_list.stdout_lines }}"
 
     - name: Set tripleo's volume type backend if defined
-      shell: cinder type-key tripleo set volume_backend_name={{ cinder-tripleo-volume-backend }}
+      shell: cinder type-key tripleo set volume_backend_name="{{ cinder-tripleo-volume-backend }}"
       when: cinder-tripleo-volume-backend is defined
