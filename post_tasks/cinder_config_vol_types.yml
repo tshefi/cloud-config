@@ -7,9 +7,9 @@
 
   tasks:
     - name: set the tripleo backend
-          set_fact:
-            cinder-tripleo-volume-backend: '{{ install.cinder.tripleo.volume.backend }}'
-          when: (install.tripleo.backend|default({})
+      set_fact:
+          cinder-tripleo-volume-backend: '{{ install.cinder.tripleo.volume.backend }}'
+      when: (install.tripleo.backend|default({})
 
     - name: Detect existing Cinder backends
       shell: cinder get-pools --detail | awk '/volume_backend_name/ { print $4}'
