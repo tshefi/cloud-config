@@ -6,10 +6,10 @@
   hosts: undercloud
 
   tasks:
-    - name: set the tripleo backend
-      set_fact:
-          cinder-tripleo-volume-backend: '{{ install.cinder.tripleo.volume.backend }}'
-      when: (install.tripleo.backend|default({})
+#    - name: set the tripleo backend
+#      set_fact:
+#          cinder-tripleo-volume-backend: '{{ install.cinder.tripleo.volume.backend }}'
+#      when: (install.tripleo.backend|default({})
 
     - name: Detect existing Cinder backends
       shell: cinder get-pools --detail | awk '/volume_backend_name/ { print $4}'
@@ -25,5 +25,5 @@
       loop: "{{ backend_list.stdout_lines }}"
 
     - name: Set tripleo's volume type backend if defined
-      shell: cinder type-key tripleo set volume_backend_name="{{ cinder-tripleo-volume-backend }}"
-      when: cinder-tripleo-volume-backend is defined
+      shell: cinder type-key tripleo set volume_backend_name={{ install.cinder.tripleo.volume.backend }}
+#     when: cinder-tripleo-volume-backend is defined
