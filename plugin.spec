@@ -374,9 +374,6 @@ subparsers:
                   cinder-tripleo-volume-backend:
                      type: Value
                      choices:
-                         - tripleo_netapp
-                         - tripleo_nfs
-                         - tripleo_fc
                      help: |
                        In multibackend Cinder deployments, this parameter should be used to populate
                        the default volume type's backend, i.e. set the volume type for the 'tripleo' backend.
