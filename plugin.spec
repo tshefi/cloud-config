@@ -373,7 +373,6 @@ subparsers:
                   
                   cinder-tripleo-volume-backend:
                      type: Value
-                     choices:
                      help: |
                        In multibackend Cinder deployments, this parameter should be used to populate
                        the default volume type's backend, i.e. set the volume type for the 'tripleo' backend.
