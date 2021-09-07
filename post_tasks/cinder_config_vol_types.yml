@@ -6,11 +6,6 @@
   hosts: undercloud
 
   tasks:
-#    - name: set the tripleo backend
-#      set_fact:
-#          cinder-tripleo-volume-backend: '{{ install.cinder.tripleo.volume.backend }}'
-#      when: (install.tripleo.backend|default({})
-
     - name: Detect existing Cinder backends
       shell: |
           source ~/{{ install.overcloud.stack }}rc
