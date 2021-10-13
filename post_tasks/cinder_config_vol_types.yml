@@ -14,11 +14,10 @@
       ignore_errors: true
 
     - name: Create volume types to fit backends
-      shell:
-         cmd: |
+      shell: |
              source ~/{{ install.overcloud.stack }}rc
-#         cinder type-create "{{ item }}"
-             if cinder type-show "{{ item }}"; then :; else cinder type-create "{{ item }}" ; fi
+             cinder type-create "{{ item }}"
+#            if cinder type-show "{{ item }}"; then :; else cinder type-create "{{ item }}" ; fi
       loop: "{{ backend_list.stdout_lines }}"
 
     - name: Configure backend names per volume types
